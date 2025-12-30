@@ -1,0 +1,19 @@
+# Python derleme dosyaları
+__pycache__/
+*.py[cod]
+
+# Sanal Ortam 
+.venv/
+env/
+venv/
+
+# IDE dosyaları
+.vscode/
+.idea/
+
+# Veri setleri
+1553768847-housing.csv
+# housing_prepared.csv  
+
+# Sonuçlar veya loglar
+*.log
