@@ -50,15 +50,17 @@ if __name__ == "__main__":
             "MSE": mse
         })
 
-    print("\n" + "="*55)
+    print("\n" + "="*70)
     print("       DENEY SONUÇLARI (Linear Regression)       ")
-    print("="*55)
-    print(f"{'İşlemci':<10} | {'Süre (s)':<15} | {'Hızlanma':<10} | {'MSE':<10}")
-    print("-" * 55)
+    print("="*70)
+    print(f"{'İşlemci':<10} | {'Süre (s)':<15} | {'Hızlanma':<10} | {'Verimlilik':<10} | {'MSE':<10}")
+    print("-" * 70)
     
     base_time = results[0]["Time (s)"] 
     
     for r in results:
         speedup = base_time / r["Time (s)"]
-        print(f"{r['Processors']:<10} | {r['Time (s)']:<15.4f} | {speedup:<10.2f}x | {r['MSE']:.5f}")
-    print("="*55)
+        efficiency = speedup / r["Processors"]  
+        
+        print(f"{r['Processors']:<10} | {r['Time (s)']:<15.4f} | {speedup:<10.2f}x | {efficiency:<10.2f} | {r['MSE']:.5f}")
+    print("="*70)

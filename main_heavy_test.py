@@ -63,15 +63,17 @@ if __name__ == "__main__":
             "MSE": mse
         })
 
-    print("\n" + "="*60)
+    print("\n" + "="*75)
     print("       STRES TESTİ SONUÇLARI (Büyük Veri)       ")
-    print("="*60)
-    print(f"{'İşlemci':<10} | {'Süre (s)':<15} | {'Hızlanma':<10} | {'MSE':<10}")
-    print("-" * 60)
+    print("="*75)
+    print(f"{'İşlemci':<10} | {'Süre (s)':<15} | {'Hızlanma':<10} | {'Verimlilik':<10} | {'MSE':<10}")
+    print("-" * 75)
     
-    base_time = results[0]["Time (s)"] # 1 İşlemci süresi referanstır
+    base_time = results[0]["Time (s)"] 
     
     for r in results:
         speedup = base_time / r["Time (s)"]
-        print(f"{r['Processors']:<10} | {r['Time (s)']:<15.4f} | {speedup:<10.2f}x | {r['MSE']:.5f}")
-    print("="*60)
+        efficiency = speedup / r["Processors"] 
+        
+        print(f"{r['Processors']:<10} | {r['Time (s)']:<15.4f} | {speedup:<10.2f}x | {efficiency:<10.2f} | {r['MSE']:.5f}")
+    print("="*75)
